@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using backbackend.Models;
+
+namespace backbackend.Controllers
+{
+[Route("api/[controller]")]
+[ApiController]
+public class CharControler : ControllerBase
+
+{
+private static List<Character> characters = new List<Character>
+        {
+        // new Character {
+        // Id = 0,
+        // Name = "Paulo",
+        // Class = RpgClass.Archer,
+        // Defenses = 10,
+        // Hp = 100,Intelligence = 10,Strength = 10,
+        // },
+        new Character
+        {
+        Id = 1,
+        Name = "SetYourName",
+        Hp = 100,
+        Class = RpgClass.Poor,
+        }
+        };
+        private readonly DataContext _context;
+
+        public CharControler(DataContext context)
+        {
+        _context = context;
+        }
+        [HttpGet]
+        public async Task<ActionResult<List<Character>>> Get()
+            {
+
+            return Ok(await _context.Characters.ToListAsync());
+            }
+
+            [HttpGet("{id}")]
+            public async Task<ActionResult<Character>> Get(int id)
+                {
+                var character = await _context.Characters.FindAsync(id);
+                if (character == null)
+                return BadRequest("Его не существует");
+                return Ok(character);
+                }
+
+                [HttpPost]
+                public async Task<ActionResult<List<Character>>> AddCharacter(Character character)
+                    {
+                    _context.Characters.Add(character);
+                    await _context.SaveChangesAsync();
+                    return Ok(await _context.Characters.ToListAsync());
+                    }
+                    [HttpPut]
+                    public async Task<ActionResult<List<Character>>> UpdateCharacter(Character character_request)
+                        {
+                        var dbcharacter = await _context.Characters.FindAsync(character_request.Id);
+                        if (dbcharacter == null)
+                        return BadRequest("Его не существует");
+
+                        dbcharacter.Name = character_request.Name;
+                        dbcharacter.Class = character_request.Class;
+                        dbcharacter.Hp = character_request.Hp;
+
+                        await _context.SaveChangesAsync();
+                        return Ok(await _context.Characters.ToListAsync());
+                        }
+                        [HttpDelete("{id}")]
+                        public async Task<ActionResult<List<Character>>> Delete(int id)
+                            {
+                            var character = await _context.Characters.FindAsync(id);
+                            if (character == null)
+                            return BadRequest("Его не существует");
+                            _context.Characters.Remove(character);
+                            await _context.SaveChangesAsync();
+                            return Ok(await _context.Characters.ToListAsync());
+                            }
+                            }
+                            }
