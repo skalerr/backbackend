@@ -45,7 +45,7 @@ namespace backbackend.Controllers
                 return Ok(await _context.UserData.ToListAsync());
             }
             catch (Exception ex) {
-                return BadRequest(ex.Message);
+                return StatusCode(500, ex.Message);
             }
             
             
