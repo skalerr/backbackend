@@ -1,25 +1,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace backbackend.Models
 {
     public class UserData
     {
         public int Id {get; set; }
-        public string? requestnumber{get; set; }
+        [JsonPropertyName("requestnumber")]
 
-        public string? inputtel { get; set; }
+        public string? RequestNumber{get; set; }
+        [JsonPropertyName("inputtel")]              
 
-        public string? inputname { get; set; }
-        public string? inputemail { get; set; }
-        public int? vmodelsumm { get; set; }
-        public int? vmodelday { get; set; }
 
-        public string? datenow { get; set; } 
+        public string? InputTel { get; set; }
+        [JsonPropertyName("inputname")]
+
+        public string? InputName { get; set; }
+        [JsonPropertyName("inputemail")]
+
+        public string? InputEmail { get; set; }
+        [JsonPropertyName("vmodelsumm")]
+
+        public int? VmodelSumm { get; set; }
+        [JsonPropertyName("vmodelday")]
+
+        public int? VmodelDay { get; set; }
 
         // public DateTime datenow {get; set; } = new DateTime();
+        public string? datenow { get; set; } 
+
 
     }
 }

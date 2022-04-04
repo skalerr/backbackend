@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backbackend.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Newtonsoft.Json;
 
 namespace backbackend.Controllers
 {
@@ -14,12 +14,12 @@ namespace backbackend.Controllers
     {
         private static List<UserData> settings = new List<UserData>
             {
-                new UserData
-                {
-                    inputemail = "",
-                    inputname = "",
-                    inputtel = "",
-                }
+                // new UserData
+                // {
+                //     InputEmail = "",
+                //     InputName = "",
+                //     InputTel = "",
+                // }
             };
 
         private readonly DataContext _context;
@@ -38,6 +38,7 @@ namespace backbackend.Controllers
         public async Task<ActionResult<List<UserData>>> Add(UserData set)
         {
             try {
+
                 _context.UserData.Add(set);
                 await _context.SaveChangesAsync();
                 await _context.UserData.ToListAsync();
