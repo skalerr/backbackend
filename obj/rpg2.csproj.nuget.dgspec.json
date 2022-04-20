@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Пользователь\\source\\backbackend\\rpg2.csproj": {}
+    "C:\\Users\\rob\\source\\repos\\backbackend\\rpg2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Пользователь\\source\\backbackend\\rpg2.csproj": {
+    "C:\\Users\\rob\\source\\repos\\backbackend\\rpg2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Пользователь\\source\\backbackend\\rpg2.csproj",
+        "projectUniqueName": "C:\\Users\\rob\\source\\repos\\backbackend\\rpg2.csproj",
         "projectName": "rpg2",
-        "projectPath": "C:\\Users\\Пользователь\\source\\backbackend\\rpg2.csproj",
-        "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Пользователь\\source\\backbackend\\obj\\",
+        "projectPath": "C:\\Users\\rob\\source\\repos\\backbackend\\rpg2.csproj",
+        "packagesPath": "C:\\Users\\rob\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rob\\source\\repos\\backbackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Пользователь\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rob\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
